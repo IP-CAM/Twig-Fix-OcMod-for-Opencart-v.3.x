@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--
+This file is subject to the terms and conditions defined in the "LICENSE.txt"
+file, which is part of this source code package and is also available on the
+page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
+-->
+
+<modification>
+	<name>![underr] OCMOD TWIG Fix for OC v3.0.3.5(6)</name>
+	<code>ocmod-twig-fix</code>
+	<version>1.0.0</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://www.opencart.com/index.php?route=marketplace/extension&amp;filter_member=ocmod.space</link>
+
+	<file path="admin/controller/marketplace/modification.php" error="skip">
+		<operation error="log">
+			<search>
+				<![CDATA[$xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');]]>
+			</search>
+			<add position="before"><![CDATA[
+				/// <<< OCMOD TWIG Fix
+				if (VERSION === '3.0.3.5' || VERSION === '3.0.3.6') {
+					$xml[] = file_get_contents(DIR_SYSTEM.'modification_fixed.xml');
+				} else
+				/// OCMOD TWIG Fix >>>
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="system/library/template/twig.php" error="skip">
+		<operation error="log">
+			<search><![CDATA[
+				$loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+			]]></search>
+			<add position="before"><![CDATA[
+				/// <<< OCMOD TWIG Fix
+				if (VERSION === '3.0.3.5' || VERSION === '3.0.3.6') {
+					$loader_array = new \Twig_Loader_Array(array($filename . '.twig' => $code));
+					$loader_filesystem = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+					$loader = new \Twig\Loader\ChainLoader(array($loader_array, $loader_filesystem));
+				} else
+				/// OCMOD TWIG Fix >>>
+			]]></add>
+		</operation>
+	</file>
+
+</modification>
