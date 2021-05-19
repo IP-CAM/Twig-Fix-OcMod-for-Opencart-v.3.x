@@ -2,8 +2,8 @@
 
 ## How to install
 * Start by making a backup (both DB and store files)!!!
-* Admin > Extensions > Installer > [Upload]: ocmod-dir-fix.ocmod.zip
-* Admin > Extensions > Installer > [Upload]: ocmod-twig-fix.ocmod.zip
+* Admin > Extensions > Installer > [Upload]: ocmod-fix-dir.ocmod.zip
+* Admin > Extensions > Installer > [Upload]: ocmod-fix-twig.ocmod.zip
 * Admin > Extensions > Modifications > [Refresh]
 * Admin > Extensions > Modifications > [Refresh]
 * !!! Refresh Twice !!!
@@ -12,8 +12,8 @@
 
 ## How to uninstall
 * Start by making a backup (both DB and store files)!!!
-* Admin > Extensions > Installer > Install History > ocmod-dir-fix.ocmod.zip > [Uninstall]
-* Admin > Extensions > Installer > Install History > ocmod-twig-fix.ocmod.zip > [Uninstall]
+* Admin > Extensions > Installer > Install History > ocmod-fix-dir.ocmod.zip > [Uninstall]
+* Admin > Extensions > Installer > Install History > ocmod-fix-twig.ocmod.zip > [Uninstall]
 * Admin > Extensions > Modifications > [Refresh]
 * Admin > Dashboard > [Developer Settings] > [Refresh]
 
